@@ -109,50 +109,66 @@
 	<main class="right">
 		<section class="module">
 			<div class="badge">/identity</div>
-			<h3>Built to click. Born to question.</h3>
+			<h3>Custom AI for the Unsolved.</h3>
 			<p>
-				KL1KK0 is a boutique AI research and engineering studio. We build bespoke agents,
-				architectures, and systems for teams operating beyond template solutions.
+				KL1KK0 is a boutique AI research and engineering studio for teams that outgrow templates.
+				We design cognition, not demos—agents, architectures, and workflows built to your domain.
 			</p>
 		</section>
 		<section class="module">
-			<div class="badge">/agents</div>
-			<h3>Custom Agents</h3>
+			<div class="badge">/systems</div>
+			<h3>Agentic Systems & Orchestration</h3>
 			<p>
-				Domain-specific collaborators with long-term memory, adaptive reasoning, workflow
-				orchestration, and multi-agent coordination.
+				Goal-driven agents with planning, tool use, and multi-step workflows. Chain-of-thought,
+				multi-agent coordination, guardrails, and observability so agents operate with confidence.
 			</p>
 		</section>
 		<section class="module">
-			<div class="badge">/products</div>
-			<h3>High-End AI Product Development</h3>
+			<div class="badge">/knowledge</div>
+			<h3>Knowledge Management & Search</h3>
 			<p>
-				Complete AI-driven products, proprietary inference pipelines, and specialized interfaces
-				tuned to your domain.
+				Vector stores, RAG pipelines, and retrieval UX tuned to your corpus. Structured ingestion,
+				fast semantic search, grounding, citations, and feedback loops to keep answers trusted.
 			</p>
 		</section>
 		<section class="module">
-			<div class="badge">/research</div>
-			<h3>Independent Research</h3>
+			<div class="badge">/workflows</div>
+			<h3>Intelligent Workflows</h3>
 			<p>
-				Cognitive architectures, memory systems, symbolic+neural hybrids, agent planning, and novel
-				interface paradigms.
+				End-to-end automation for research, ops, and product teams. Agents that read, summarize,
+				classify, decide, and execute across APIs, data rooms, MCP servers, and internal tools.
 			</p>
 		</section>
 		<section class="module">
-			<div class="badge">/sprites</div>
-			<h3>Terminal Sprites</h3>
+			<div class="badge">/interfaces</div>
+			<h3>Chat UX & Copilots</h3>
 			<p>
-				Identity-layer archetypes representing core agent behaviors: K0R (analysis), L1T
-				(exploration), KIK (synthesis), O0N (continuity).
+				Terminal-style copilots, web chat, and embedded widgets with memory and safety. Great UX,
+				domain vocabulary, and rapid handoff to humans when needed.
+			</p>
+		</section>
+		<section class="module">
+			<div class="badge">/platform</div>
+			<h3>Infrastructure & Tooling</h3>
+			<p>
+				MCP servers, tool registries, observability, evals, and deployment. Private or hybrid clouds,
+				model routing, safety layers, and CI for prompts and policies.
+			</p>
+		</section>
+		<section class="module">
+			<div class="badge">/advisory</div>
+			<h3>Research & Advisory</h3>
+			<p>
+				Architecture reviews, feasibility, and custom prototypes. We explore memory systems, symbolic
+				+ neural hybrids, agent planning, and new interface paradigms to de-risk your roadmap.
 			</p>
 		</section>
 		<section class="module">
 			<div class="badge">/process</div>
 			<h3>Process</h3>
 			<p>
-				Discovery → Prototype → Refinement → Deployment → Evolution. Precision engineering with
-				long-term collaboration.
+				Discovery → Prototype → Refinement → Deployment → Evolution. Limited intake for deep
+				engineering focus and long-term continuity.
 			</p>
 			<div class="cta">
 				<button type="button">&gt; start_project</button>
