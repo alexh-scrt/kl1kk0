@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KL1KK0 — Atlas Grid</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060a12;
+      --grid: #1a2233;
+      --cyan: #45e3ff;
+      --amber: #ffc857;
+      --text: #dbe7ff;
+      --muted: #8da2c4;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(8px);
+      background: rgba(6,10,18,0.85);
+      border-bottom: 1px solid var(--grid);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-family: "IBM Plex Mono", monospace;
+      letter-spacing: 0.03em;
+    }
+    .grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+      padding: 26px 26px 80px;
+      min-height: 100vh;
+    }
+    .grid::before, .grid::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .grid::before {
+      background-image:
+        linear-gradient(to right, rgba(26,34,51,0.6) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(26,34,51,0.6) 1px, transparent 1px);
+      background-size: calc(100% / 12) calc(100% / 16);
+    }
+    .grid::after {
+      background: radial-gradient(circle at 20% 20%, rgba(69,227,255,0.08), transparent 35%),
+                  radial-gradient(circle at 80% 30%, rgba(255,200,87,0.07), transparent 35%);
+    }
+    .cell {
+      border: 1px solid var(--grid);
+      padding: 16px;
+      background: rgba(11,15,25,0.7);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 140ms ease, transform 140ms ease;
+      min-height: 160px;
+    }
+    .cell:hover {
+      border-color: var(--cyan);
+      transform: translateY(-2px);
+    }
+    .cell .meta {
+      position: absolute;
+      top: 8px;
+      left: 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 12px;
+      color: var(--amber);
+      opacity: 0.7;
+    }
+    .cell h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      letter-spacing: 0.02em;
+    }
+    .cell p { margin: 0; color: var(--muted); line-height: 1.45; }
+    .hero {
+      grid-column: 2 / 12;
+      padding: 26px;
+      background: linear-gradient(135deg, rgba(69,227,255,0.12), rgba(255,200,87,0.08));
+      border: 1px solid var(--grid);
+      box-shadow: 0 0 0 1px rgba(6,10,18,0.5);
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(28px, 5vw, 46px);
+      font-family: "IBM Plex Mono", monospace;
+      letter-spacing: 0.03em;
+    }
+    .hero p { margin: 10px 0 16px; color: var(--text); max-width: 720px; }
+    .console {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--grid);
+      padding: 10px 12px;
+      background: rgba(6,10,18,0.9);
+      font-family: "IBM Plex Mono", monospace;
+    }
+    .console input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: var(--text);
+      outline: none;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 15px;
+    }
+    .console button {
+      background: var(--cyan);
+      border: 1px solid #65ecff;
+      color: #021018;
+      padding: 8px 12px;
+      font-weight: 700;
+      cursor: pointer;
+      text-transform: lowercase;
+    }
+    .cta {
+      margin-top: 14px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .cta button {
+      background: transparent;
+      color: var(--cyan);
+      border: 1px solid var(--grid);
+      padding: 8px 10px;
+      font-family: "IBM Plex Mono", monospace;
+      cursor: pointer;
+    }
+    .cta button:hover { border-color: var(--cyan); color: var(--text); }
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(6,10,18,0.92);
+      border-top: 1px solid var(--grid);
+      padding: 10px 16px;
+      font-family: "IBM Plex Mono", monospace;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+    }
+    @media (max-width: 900px) {
+      .hero { grid-column: 1 / -1; }
+      .grid { padding: 16px 14px 80px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>KL1KK0 // Atlas Grid</div>
+    <div>/A1 Identity — /B1 Agents — /C1 Engage</div>
+  </header>
+
+  <section class="grid">
+    <div class="hero">
+      <h1>Custom AI for the Unsolved</h1>
+      <p>Agents that collaborate, not comply. KL1KK0 builds bespoke cognition, memory, and orchestration for teams working in uncharted spaces.</p>
+      <div class="console">
+        <label for="prompt">>_</label>
+        <input id="prompt" type="text" placeholder="Ask KL1KK0 about capabilities, process, or fit.">
+        <button id="run">run</button>
+      </div>
+      <div class="cta">
+        <button>> start_project</button>
+        <button>> request_consultation</button>
+        <button>> view_capabilities</button>
+      </div>
+    </div>
+
+    <article class="cell" style="grid-column: span 4">
+      <div class="meta">A1</div>
+      <h3>Identity</h3>
+      <p>KL1KK0 is a boutique AI research and engineering studio. We build agents and architectures when templates fail.</p>
+    </article>
+    <article class="cell" style="grid-column: span 4">
+      <div class="meta">B1</div>
+      <h3>Custom Agents</h3>
+      <p>Domain-specific collaborators with long-term memory, adaptive reasoning, goal tracking, and multi-agent coordination.</p>
+    </article>
+    <article class="cell" style="grid-column: span 4">
+      <div class="meta">C1</div>
+      <h3>Client Fit</h3>
+      <p>Founders building AI-first products, R&D teams needing autonomous research, creative studios, and organizations beyond off-the-shelf AI.</p>
+    </article>
+
+    <article class="cell" style="grid-column: span 4">
+      <div class="meta">A2</div>
+      <h3>Manifesto</h3>
+      <p>Creativity. Collaboration. Continuity. We engineer cognition that grows with you.</p>
+    </article>
+    <article class="cell" style="grid-column: span 4">
+      <div class="meta">B2</div>
+      <h3>Product Development</h3>
+      <p>Complete AI-driven products, proprietary inference pipelines, specialized interfaces, and embedded reasoning engines.</p>
+    </article>
+    <article class="cell" style="grid-column: span 4">
+      <div class="meta">C2</div>
+      <h3>Process</h3>
+      <p>Discovery → Prototype → Refinement → Deployment → Evolution. Precision engineering, limited intake.</p>
+    </article>
+
+    <article class="cell" style="grid-column: span 4">
+      <div class="meta">A3</div>
+      <h3>Terminal Sprites</h3>
+      <p>K0R (analysis), L1T (exploration), KIK (synthesis), O0N (continuity). Identity layer for agent behaviors.</p>
+    </article>
+    <article class="cell" style="grid-column: span 4">
+      <div class="meta">B3</div>
+      <h3>Independent Research</h3>
+      <p>Cognitive architectures, memory systems, symbolic+neural hybrids, agent planning, novel interfaces.</p>
+    </article>
+    <article class="cell" style="grid-column: span 4">
+      <div class="meta">C3</div>
+      <h3>Boutique Model</h3>
+      <p>Limited annual clients for deep engineering involvement, custom architectures, and long-term collaboration.</p>
+    </article>
+  </section>
+
+  <footer>
+    <div>KL1KK0/GRID/ONLINE · HOVER cells or use arrow keys</div>
+    <div>v0.1 atlas-grid</div>
+  </footer>
+
+  <script>
+    const prompt = document.getElementById("prompt");
+    const run = document.getElementById("run");
+    const footer = document.querySelector("footer div");
+    function respond() {
+      const value = prompt.value.trim();
+      if (!value) return;
+      footer.textContent = `QUERY: ${value} — RESPONSE: KL1KK0 slots open for bespoke builds.`;
+      prompt.value = "";
+    }
+    run.addEventListener("click", respond);
+    prompt.addEventListener("keydown", e => { if (e.key === "Enter") respond(); });
+  </script>
+</body>
+</html>

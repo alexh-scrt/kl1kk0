@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KL1KK0 — Amber Gridlines / Green Focus v1</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@400;600&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c0a06;
+      --panel: #14100c;
+      --border: #342816;
+      --border-bright: #4c3a23;
+      --amber: #ffb547;
+      --green: #70ff77;
+      --text: #f4e9d6;
+      --sub: #bca987;
+      --glow: 0 0 18px rgba(255,181,71,0.2);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Manrope", system-ui, sans-serif;
+      display: grid;
+      grid-template-columns: 34% 66%;
+      min-height: 100vh;
+      background-image:
+        linear-gradient(rgba(255,181,71,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,181,71,0.03) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    header {
+      grid-column: 1 / -1;
+      padding: 16px 22px;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(90deg, rgba(255,181,71,0.08), rgba(255,181,71,0.02));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-family: "Overpass Mono", monospace;
+      letter-spacing: 0.03em;
+    }
+    .brand span {
+      display: inline-block;
+      padding: 6px 10px;
+      border: 1px solid var(--border-bright);
+      background: #0f0c09;
+      box-shadow: var(--glow);
+    }
+    .cmd-bar { color: var(--amber); font-size: 14px; }
+    .left {
+      border-right: 1px solid var(--border-bright);
+      padding: 18px 16px;
+      background: radial-gradient(circle at 32% 22%, rgba(255,181,71,0.08), transparent 44%);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .prompt, .log {
+      border: 1px dashed var(--border-bright);
+      background: #0f0c09;
+      font-family: "Overpass Mono", monospace;
+    }
+    .prompt {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+    }
+    .prompt input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: var(--green);
+      font-size: 15px;
+      outline: none;
+      caret-color: var(--green);
+    }
+    .prompt button {
+      padding: 6px 12px;
+      background: transparent;
+      border: 1px solid var(--border-bright);
+      color: var(--amber);
+      font-weight: 700;
+      cursor: pointer;
+      text-transform: lowercase;
+    }
+    .prompt button:hover { border-color: var(--green); color: var(--text); }
+    .log {
+      flex: 1;
+      padding: 14px;
+      box-shadow: inset 0 0 0 1px #0a0806;
+      overflow-y: auto;
+      max-height: calc(100vh - 160px);
+      color: var(--sub);
+    }
+    .log-line { margin: 4px 0; display: flex; gap: 8px; }
+    .log-line strong { color: var(--green); }
+    .bracket { color: var(--amber); }
+    .right {
+      padding: 22px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .module {
+      border: 1px dashed var(--border);
+      background: var(--panel);
+      padding: 16px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--glow);
+    }
+    .module::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(112,255,119,0.08), rgba(255,181,71,0.06));
+      opacity: 0;
+      transition: opacity 160ms ease;
+    }
+    .module:hover::before { opacity: 0.2; }
+    .module h3 {
+      margin: 0 0 8px;
+      font-family: "Overpass Mono", monospace;
+      letter-spacing: 0.02em;
+    }
+    .module p { margin: 0 0 10px; color: var(--sub); line-height: 1.4; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px;
+      border: 1px dashed var(--border-bright);
+      color: var(--green);
+      font-family: "Overpass Mono", monospace;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    .cta { display: inline-flex; gap: 8px; flex-wrap: wrap; }
+    .cta button {
+      background: transparent;
+      color: var(--green);
+      border: 1px dashed var(--border-bright);
+      padding: 8px 12px;
+      font-family: "Overpass Mono", monospace;
+      cursor: pointer;
+    }
+    .cta button:hover { border-color: var(--green); color: var(--text); }
+    footer {
+      grid-column: 1 / -1;
+      border-top: 1px solid var(--border);
+      padding: 10px 16px;
+      font-family: "Overpass Mono", monospace;
+      color: var(--sub);
+      background: #0f0c09;
+      display: flex;
+      justify-content: space-between;
+    }
+    @media (max-width: 900px) {
+      body { grid-template-columns: 1fr; }
+      .left { max-height: 38vh; }
+      .log { max-height: 26vh; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand"><span>KL1KK0</span><div>Custom AI for the Unsolved</div></div>
+    <div class="cmd-bar">KL1KK0://amber-grid-greenfocus — green prompts</div>
+  </header>
+
+  <aside class="left">
+    <div class="prompt">
+      <label for="q">>_</label>
+      <input id="q" type="text" placeholder="Ask KL1KK0 anything...">
+      <button id="send">run</button>
+    </div>
+    <div class="log" id="log">
+      <div class="log-line"><strong><span class="bracket">[</span>BOOT<span class="bracket">]</span></strong><span>Gridlines calibrated.</span></div>
+      <div class="log-line"><strong><span class="bracket">[</span>AGENT/K0R<span class="bracket">]</span></strong><span>Awaiting directives.</span></div>
+    </div>
+  </aside>
+
+  <main class="right">
+    <section class="module">
+      <div class="badge">/identity</div>
+      <h3>Built to click. Born to question.</h3>
+      <p>KL1KK0 is a boutique AI research and engineering studio. We build bespoke agents, architectures, and systems for teams operating beyond template solutions.</p>
+    </section>
+    <section class="module">
+      <div class="badge">/agents</div>
+      <h3>Custom Agents</h3>
+      <p>Domain-specific collaborators with long-term memory, adaptive reasoning, workflow orchestration, and multi-agent coordination.</p>
+    </section>
+    <section class="module">
+      <div class="badge">/products</div>
+      <h3>High-End AI Product Development</h3>
+      <p>Complete AI-driven products, proprietary inference pipelines, and specialized interfaces tuned to your domain.</p>
+    </section>
+    <section class="module">
+      <div class="badge">/research</div>
+      <h3>Independent Research</h3>
+      <p>Cognitive architectures, memory systems, symbolic+neural hybrids, agent planning, and novel interface paradigms.</p>
+    </section>
+    <section class="module">
+      <div class="badge">/sprites</div>
+      <h3>Terminal Sprites</h3>
+      <p>Identity-layer archetypes representing core agent behaviors: K0R (analysis), L1T (exploration), KIK (synthesis), O0N (continuity).</p>
+    </section>
+    <section class="module">
+      <div class="badge">/process</div>
+      <h3>Process</h3>
+      <p>Discovery → Prototype → Refinement → Deployment → Evolution. Precision engineering with long-term collaboration.</p>
+      <div class="cta">
+        <button>> start_project</button>
+        <button>> request_consultation</button>
+        <button>> view_capabilities</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>KL1KK0/AMBER-GRID-GREENFOCUS/READY · MEMORY: ACTIVE · USER: CONNECTED</div>
+    <div>v0.1 amber-grid-greenfocus</div>
+  </footer>
+
+  <script>
+    const log = document.getElementById("log");
+    const input = document.getElementById("q");
+    const send = document.getElementById("send");
+    function addLog(prefix, text) {
+      const line = document.createElement("div");
+      line.className = "log-line";
+      line.innerHTML = `<strong><span class="bracket">[</span>${prefix}<span class="bracket">]</span></strong><span>${text}</span>`;
+      log.appendChild(line);
+      log.scrollTop = log.scrollHeight;
+    }
+    function respond() {
+      const value = input.value.trim();
+      if (!value) return;
+      addLog("USER", value);
+      setTimeout(() => addLog("AGENT/K0R", "Drafting response..."), 300);
+      setTimeout(() => addLog("AGENT/K0R", "Discovery → Prototype → Refinement. Grid-aligned delivery."), 900);
+      input.value = "";
+    }
+    send.addEventListener("click", respond);
+    input.addEventListener("keydown", e => { if (e.key === "Enter") respond(); });
+  </script>
+</body>
+</html>
